@@ -1,0 +1,21 @@
+<h1>Listing getheaders</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @getheaders.each do |getheader| %>
+  <tr>
+    <td><%= link_to 'Show', getheader %></td>
+    <td><%= link_to 'Edit', edit_getheader_path(getheader) %></td>
+    <td><%= link_to 'Destroy', getheader, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Getheader', new_getheader_path %>
