@@ -1,0 +1,17 @@
+<% provide(:title, @get_image.subreddit) %>
+
+<p>
+  <b>Link:</b>
+  <%= @get_image.link %>
+</p>
+
+<p>
+  <b>Subreddit:</b>
+  <%= @get_image.subreddit %>
+</p>
+<p>
+	<b>Subreddit Image:</b>
+	<%= raw @content %>
+</p>
+<%= link_to 'Edit', edit_get_image_path(@get_image) %> |
+<%= link_to 'Back', get_images_path %>

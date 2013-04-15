@@ -1,0 +1,18 @@
+<%= form_for(@get_image) do |f| %>
+<% if @get_image.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-error">
+      The form contains <%= pluralize(@get_image.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% @get_image.errors.full_messages.each do |msg| %>
+      <li> <%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+    <%= f.text_field :link %>
+
+    <%= f.submit "Submit Link", class: "btn btn-large btn-primary" %>
+
+<% end %>

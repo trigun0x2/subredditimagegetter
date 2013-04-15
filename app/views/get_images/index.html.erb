@@ -1,0 +1,20 @@
+<% provide(:title, "All Subreddits") %>
+
+<h1>All Entered Subreddits</h1>
+
+
+<% @get_images.each do |get_image| %>
+  <div class='links'>
+    <h4>Subreddit</h4><br />
+    <b><%= get_image.subreddit %></b>
+    <p>
+    
+    <%= link_to 'Show', get_image %>
+    <%= link_to 'Edit', edit_get_image_path(get_image) %>
+    <%= link_to 'Destroy', get_image, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+
+<p>
+<p>
+<%= link_to 'New Get image', new_get_image_path %>

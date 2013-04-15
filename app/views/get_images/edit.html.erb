@@ -1,0 +1,8 @@
+<% provide(:title, "Edit Subreddit") %>
+
+<h1>Editing Subreddit <%= @get_image.subreddit %></h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @get_image %> |
+<%= link_to 'Back', new_get_image_path %>

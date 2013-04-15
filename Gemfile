@@ -10,6 +10,7 @@ gem 'jquery-ui-rails'
 gem 'readit'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'nokogiri'
+gem 'readit'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

@@ -1,5 +1,9 @@
 Redditheader::Application.routes.draw do
+  resources :get_images
+
+
   resources :getheaders
+  root to: 'get_images#new'
 
 
   # The priority is based upon order of creation:
