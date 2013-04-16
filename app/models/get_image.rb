@@ -5,6 +5,9 @@ class GetImage < ActiveRecord::Base
 
   before_validation :smart_add_url_protocol
 
+  validates :link, uniqueness: { case_sensitive: false }
+  validates :subreddit, uniqueness: { case_sensitive: false }
+
 protected
 
 def smart_add_url_protocol
