@@ -1,5 +1,8 @@
 module GetImagesHelper
-
+  def urlcontent(link)
+    require 'open-uri'
+    doc = Nokogiri::HTML(open(link))
+  end
 	def read(site)
 		Readit::Config.consumer_key = "trigun0x2"
 		Readit::Config.consumer_secret = "TcjVwsvrsTTsxcXp3Xzs6ZVqbmUssYNd"

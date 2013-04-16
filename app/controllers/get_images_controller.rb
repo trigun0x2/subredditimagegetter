@@ -98,9 +98,10 @@ class GetImagesController < ApplicationController
 
   def addhttp(link)
     start= link[0,3]
-    unless start == "http"
-      @output= "http://" +link
+    unless start == "htt"
+      output= "http://" +link
     end
+      link
   end
   def read(site)
     Readit::Config.consumer_key = "trigun0x2"

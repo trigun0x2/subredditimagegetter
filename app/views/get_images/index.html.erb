@@ -2,19 +2,23 @@
 
 <h1>All Entered Subreddits</h1>
 
-
+<% i = 1 %>
 <% @get_images.each do |get_image| %>
-  <div class='links'>
-    <h4>Subreddit</h4><br />
+	<% if i==3 %>
+		<div class="section group">
+	<% end %>
+	<div class="col span_<%= i %>_of_3">
+    <!-- <h4>Subreddit</h4><br /> -->
     <b><%= get_image.subreddit %></b>
+    <%= raw urlcontent(get_image.link).css('#header-img') %>
     <p>
     
     <%= link_to 'Show', get_image %>
     <%= link_to 'Edit', edit_get_image_path(get_image) %>
-    <%= link_to 'Destroy', get_image, method: :delete, data: { confirm: 'Are you sure?' } %>
+	</div>
+	<% i=i+1 %>
+	<% if i==4 %>
+		</div>
+		<% i=1 %>
+	<% end %>	
 <% end %>
-
-
-<p>
-<p>
-<%= link_to 'New Subreddit Entry', new_get_image_path %>
