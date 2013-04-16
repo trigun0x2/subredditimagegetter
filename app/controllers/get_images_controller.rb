@@ -40,17 +40,24 @@ class GetImagesController < ApplicationController
   # POST /get_images
   # POST /get_images.json
   def create
-    params[:get_image][:subreddit]=read(params[:get_image][:link]).title
-    @get_image = GetImage.new(params[:get_image])
-    
-    respond_to do |format|
-      if @get_image.save
-        format.html { redirect_to @get_image, notice: 'Get image was successfully created.' }
-        format.json { render json: @get_image, status: :created, location: @get_image }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @get_image.errors, status: :unprocessable_entity }
+      @get_image = GetImage.new(params[:get_image])
+    if !@get_image.link.blank?
+      params[:get_image][:link]=addhttp(params[:get_image][:link])
+      params[:get_image][:subreddit]=read(params[:get_image][:link]).title
+      @get_image = GetImage.new(params[:get_image])
+      
+      respond_to do |format|
+        if @get_image.save
+          format.html { redirect_to @get_image, :flash => { :success => 'Get image was successfully created.' } }
+          format.json { render json: @get_image, status: :created, location: @get_image }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @get_image.errors, status: :unprocessable_entity }
+        end
       end
+
+    else
+        redirect_to root_path, :flash => {:error => "Let's not leave it empty now.."}
     end
   end
 
@@ -89,6 +96,12 @@ class GetImagesController < ApplicationController
     doc = Nokogiri::HTML(open(link))
   end
 
+  def addhttp(link)
+    start= link[0,3]
+    unless start == "http"
+      @output= "http://" +link
+    end
+  end
   def read(site)
     Readit::Config.consumer_key = "trigun0x2"
     Readit::Config.consumer_secret = "TcjVwsvrsTTsxcXp3Xzs6ZVqbmUssYNd"
@@ -100,4 +113,5 @@ class GetImagesController < ApplicationController
     @stuff=@parser.parse site
 
   end
+
 end

@@ -74,12 +74,20 @@ p {
 
 #logo {
   float: left;
+  margin-right: 3px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+}
+
+#titlelogo {
+  float: left;
   margin-right: 10px;
-  font-size: 1.7em;
+  font-size: 1.8em;
   color: white;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
+  padding-bottom: 9px;
   font-weight: bold;
   line-height: 1;
   &:hover {
@@ -87,7 +95,6 @@ p {
     text-decoration: none;
   }
 }
-
 /* footer */
 
 footer {
